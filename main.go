@@ -3,6 +3,5 @@ package main
 import "fmt"
 
 func main() {
-	name := "Go Developers"
-	fmt.Println("Azure for", namez)
+	fmt.Println("Hello, World! (AGAIN)")
 }
