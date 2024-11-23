@@ -4,7 +4,7 @@ Completing Advent Of Code 2023 In Prep For 2024
 
 # Current Progress
 | Day        | Puzzle1           | Puzzle2  |
-| ------------- |:-------------:| -----:|
+| ------------- |:-------------:| :-----:|
 | Day01      |⭐|⭐|
 | Day02      |⭐|⭐|
 | Day03      |  |   |
