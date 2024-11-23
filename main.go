@@ -21,7 +21,7 @@ func main() {
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 1A +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 func day1a() {
 	fmt.Println("Starting Day 1a")
-	lines := returnlines("inputdata/day_01/day_01_test.txt") //Read In Inputs
+	lines := returnlines("inputdata/day_01/day_01_actual.txt") //Read In Inputs
 
 	//Setup VARS For Today
 	answer := 0
@@ -45,32 +45,83 @@ func day1a() {
 // Day1b is a copy of the day1a code but before the lies are parsed the replacements are made
 func day1b() {
 	fmt.Println("\nStarting Day 1b")
-	lines := returnlines("inputdata/day_01/day_01_test.txt") //Read In Inputs
+	//lines := returnlines("inputdata/day_01/day_01_test.txt") //Read In Inputs
+	lines := returnlines("inputdata/day_01/day_01_actual.txt") //Read In Inputs
 
 	//Setup VARS For Today
 	answer := 0
+	var digits = []string{"1", "2", "3", "4", "5", "6", "7", "8", "9"}
+	var digitname = []string{"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"}
+	var reversedigitname = []string{"eno", "owt", "eerht", "ruof", "evif", "xis", "neves", "thgie", "enin"}
 
 	//Loop Through Each Line
 	for i := 0; i < len(lines); i++ {
+		fmt.Printf("\n%s | RawString\n", lines[i])
+		lines[i] = reversestring(lines[i]) //Flip The Array In Reverse
+		//Zero Out Values For Search Of Last Word
+		maxIndex := 0
+		minValue := 99
+		//Find The Last Word That Happens In The Line
+		for j := 0; j < len(digits); j++ {
+			currentscore := strings.Index(lines[i], reversedigitname[j]) //Score Is The Index Of Where The Word Appears
+			if currentscore > -1 {
+				if currentscore < minValue {
+					minValue = currentscore
+					maxIndex = j
+				}
+			}
+			print()
+		}
+		//Find The Index Of The Last Number(Not Word) In The Line
+		minNumValue := 99
+		for j := 0; j < len(digits); j++ {
+			currentscore := strings.Index(lines[i], digits[j])
+			if currentscore > -1 {
+				if currentscore < minNumValue {
+					minNumValue = currentscore
+				}
 
-		//Check For First Instance Of a Number
-		lines[i] = strings.Replace(lines[i], "one", "1", 1)
-		lines[i] = strings.Replace(lines[i], "four", "4", 1)
-		lines[i] = strings.Replace(lines[i], "five", "5", 1)
-		lines[i] = strings.Replace(lines[i], "six", "6", 1)
-		lines[i] = strings.Replace(lines[i], "seven", "7", 1)
-		lines[i] = strings.Replace(lines[i], "eight", "8", 1)
-		lines[i] = strings.Replace(lines[i], "nine", "9", 1)
+			}
+			print()
+		}
+		//If there was a number closer to the end then the name ignore the name
+		if minValue < minNumValue {
+			print()
+			lines[i] = strings.Replace(lines[i], reversedigitname[maxIndex], digits[maxIndex], 1) // Replace the number we know is at the end first
+		}
+		lines[i] = reversestring(lines[i])
+		fmt.Printf("%s | After Last Replace\n", lines[i])
 
-		lines[i] = reversestring(lines[i])
-		lines[i] = strings.Replace(lines[i], "eno", "1", 1)
-		lines[i] = strings.Replace(lines[i], "ruof", "4", 1)
-		lines[i] = strings.Replace(lines[i], "evif", "5", 1)
-		lines[i] = strings.Replace(lines[i], "xis", "6", 1)
-		lines[i] = strings.Replace(lines[i], "neves", "7", 1)
-		lines[i] = strings.Replace(lines[i], "thgie", "8", 1)
-		lines[i] = strings.Replace(lines[i], "enin", "9", 1)
-		lines[i] = reversestring(lines[i])
+		lines[i] = reversestring(lines[i]) //Flip The Array In Reverse
+
+		//Zero Out Values For Search Of Last Word
+		maxIndex = 0
+		maxValue := -1
+		//Find The Last Word That Happens In The Line
+		for j := 0; j < len(digits); j++ {
+			currentscore := strings.Index(lines[i], reversedigitname[j]) //Score Is The Index Of Where The Word Appears
+			if currentscore > maxValue {
+				maxValue = currentscore
+				maxIndex = j
+			}
+		}
+		//Find The Index Of The Last Number(Not Word) In The Line
+		maxNumValue := -1
+		for j := 0; j < len(digits); j++ {
+			currentscore := strings.Index(lines[i], digits[j])
+			if currentscore > maxNumValue {
+				maxNumValue = currentscore
+			}
+		}
+		//If There Was a Number After The Word Ignore The Word
+		if maxValue > maxNumValue {
+			lines[i] = reversestring(lines[i])
+			lines[i] = strings.Replace(lines[i], digitname[maxIndex], digits[maxIndex], 1) // Replace the number we know is at the end first
+		} else {
+			lines[i] = reversestring(lines[i])
+		}
+
+		fmt.Printf("%s | After Both Replace\n", lines[i])
 
 		j := strings.IndexAny(lines[i], "0123456789")     //j is the index of the first instance of a number
 		k := strings.LastIndexAny(lines[i], "0123456789") //k is the index of the second instance of a number
@@ -86,9 +137,6 @@ func day1b() {
 }
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 2A +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-func day2a() {
-
-}
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Supporting Functions +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 func returnlines(filepath string) []string {
