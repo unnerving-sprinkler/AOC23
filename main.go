@@ -14,7 +14,8 @@ func main() {
 	fmt.Println("Starting The AdventOfCode23 Script")
 	day1a() //Complete
 	day1b() //Complete
-	day2a() //Not Complete
+	day2a() //Complete
+	day2b() //Complete
 
 	fmt.Printf("\nEnd Of Code | Execution Duration: %s\n", time.Since(start))
 }
@@ -162,6 +163,44 @@ func day2a() {
 		}
 	}
 	fmt.Printf(">Answer To Day 2a: %d\n", puzzleanswer)
+}
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 2B +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+func day2b() {
+	//fmt.Println("\nStarting Day 2b")
+	lines := returnlines("inputdata/day_02/day_02_test.txt") //Read In Inputs
+	//lines := returnlines("inputdata/day_02/day_02_actual.txt") //Read In Inputs
+
+	//Todays VARS
+	puzzleanswer := 0
+
+	for i := 0; i < len(lines); i++ {
+		var gameminimumblocks [3]int
+		gameinformationstring := lines[i][(strings.Index(lines[i], ":"))+2:] //Strip The Name Of The Game Off String
+		gameinformationstring = gameinformationstring + string("; ")         //Put a Ending ; To Make Our Jobs Easier Later
+		var rounds []string
+		for {
+			rounds = append(rounds, gameinformationstring[:(strings.Index(gameinformationstring, ";"))])    //Append Each Round Info To rounds
+			gameinformationstring = gameinformationstring[(strings.Index(gameinformationstring, ";") + 2):] //Remove The Round we Just Counted From The Game
+			if len(gameinformationstring) < 4 {                                                             //Break Loop When There Are No More Rounds
+				break
+			}
+		}
+		for j := 0; j < len(rounds); j++ {
+			roundinfo := ExtractRoundInformation(rounds[j]) //For Each Game Extract Information About How Many Cubes
+			if roundinfo[0] > gameminimumblocks[0] {
+				gameminimumblocks[0] = roundinfo[0]
+			}
+			if roundinfo[1] > gameminimumblocks[1] {
+				gameminimumblocks[1] = roundinfo[1]
+			}
+			if roundinfo[2] > gameminimumblocks[2] {
+				gameminimumblocks[2] = roundinfo[2]
+			}
+		}
+		puzzleanswer += (gameminimumblocks[0] * gameminimumblocks[1] * gameminimumblocks[2])
+	}
+	fmt.Printf(">Answer To Day 2b: %d\n", puzzleanswer)
 }
 
 // Return The Game Number (Used For Day 2)
