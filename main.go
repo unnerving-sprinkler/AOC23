@@ -14,6 +14,7 @@ func main() {
 	fmt.Println("Starting The AdventOfCode23 Script")
 	day1a() //Complete
 	day1b() //Complete
+	day2a() //Not Complete
 
 	fmt.Printf("\nEnd Of Code | Execution Duration: %s\n", time.Since(start))
 }
@@ -128,6 +129,15 @@ func day1b() {
 }
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 2A +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+func day2a() {
+	fmt.Println("\nStarting Day 2a")
+	//lines := returnlines("inputdata/day_01/day_01_test.txt") //Read In Inputs
+	lines := returnlines("inputdata/day_01/day_01_actual.txt") //Read In Inputs
+
+	for i := 0; i < len(lines); i++ {
+		print(lines[i])
+	}
+}
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Supporting Functions +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 func returnlines(filepath string) []string {
