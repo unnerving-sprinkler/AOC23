@@ -1,7 +1,8 @@
 # AOC23
 
 Completing Advent Of Code 2023 In Prep For 2024
-\n https://adventofcode.com/2023
+
+https://adventofcode.com/2023
 
 # Current Progress
 | Day        | Puzzle1           | Puzzle2  |
