@@ -16,6 +16,8 @@ func main() {
 	day1b() //Complete
 	day2a() //Complete
 	day2b() //Complete
+	day3a() //Not Complete
+	day3b() //Not Complete
 
 	fmt.Printf("\nEnd Of Code | Execution Duration: %s\n", time.Since(start))
 }
@@ -241,6 +243,16 @@ func ExtractRoundInformation(s string) [3]int {
 	}
 	//fmt.Printf("%d|%d|%d", colorinfo[0], colorinfo[1], colorinfo[2])
 	return colorinfo
+}
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 3A +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+func day3a() {
+
+}
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 3B +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+func day3b() {
+
 }
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Supporting Functions +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
