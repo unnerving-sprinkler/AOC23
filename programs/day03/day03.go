@@ -124,12 +124,12 @@ type partnumber struct {
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 03B ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 func Day3b(m int) (int, time.Duration) {
 	start := time.Now()
-	var lines []string
+	//var lines []string
 	if m == 0 {
-		lines = util.Returnlines("inputdata/day_03/day_03_test.txt")
+		//lines = util.Returnlines("inputdata/day_03/day_03_test.txt")
 	} else {
-		lines = util.Returnlines("inputdata/day_03/day_03_actual.txt")
+		//lines = util.Returnlines("inputdata/day_03/day_03_actual.txt")
 	}
-	lines = append(lines)
+
 	return 0, time.Since(start)
 }

@@ -55,13 +55,12 @@ func Day4a(m int) (int, time.Duration) {
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 04B ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 func Day4b(m int) (int, time.Duration) {
 	start := time.Now()
-	var lines []string
+	//var lines []string
 	if m == 0 {
-		lines = util.Returnlines("inputdata/day_04/day_04_test.txt")
+		//lines = util.Returnlines("inputdata/day_04/day_04_test.txt")
 	} else {
-		lines = util.Returnlines("inputdata/day_04/day_04_actual.txt")
+		//lines = util.Returnlines("inputdata/day_04/day_04_actual.txt")
 	}
-	lines = append(lines)
 	return 0, time.Since(start)
 }
 

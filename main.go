@@ -5,6 +5,7 @@ import (
 	day02 "AOC23/programs/day02"
 	day03 "AOC23/programs/day03"
 	day04 "AOC23/programs/day04"
+	day05 "AOC23/programs/day05"
 	"fmt"
 )
 
@@ -27,6 +28,8 @@ func main() {
 	day3bans, day3btime := day03.Day3b(m) //Not Started
 	day4aans, day4atime := day04.Day4a(m) //Complete
 	day4bans, day4btime := day04.Day4b(m) //Not Started
+	day5aans, day5atime := day05.Day5a(m) //Not Started
+	day5bans, day5btime := day05.Day5b(m) //Not Started
 
 	fmt.Printf("Day 01a | Answer: %-8d | Taking: %s\n", day1aans, day1atime)
 	fmt.Printf("Day 01b | Answer: %-8d | Taking: %s\n", day1bans, day1btime)
@@ -36,4 +39,6 @@ func main() {
 	fmt.Printf("Day 03b | Answer: %-8d | Taking: %s\n", day3bans, day3btime)
 	fmt.Printf("Day 04a | Answer: %-8d | Taking: %s\n", day4aans, day4atime)
 	fmt.Printf("Day 04b | Answer: %-8d | Taking: %s\n", day4bans, day4btime)
+	fmt.Printf("Day 05a | Answer: %-8d | Taking: %s\n", day5aans, day5atime)
+	fmt.Printf("Day 05b | Answer: %-8d | Taking: %s\n", day5bans, day5btime)
 }
