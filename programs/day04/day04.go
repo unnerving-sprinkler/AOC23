@@ -2,16 +2,21 @@ package day04
 
 import (
 	util "AOC23/programs"
-	"fmt"
 	"math"
 	"strconv"
 	"strings"
+	"time"
 )
 
-func Day4a() {
-	fmt.Println("\nStarting Day 4a")
-	//lines := uril.Returnlines("inputdata/day_04/day_04_test.txt") //Read In Inputs
-	lines := util.Returnlines("inputdata/day_04/day_04_actual.txt") //Read In Inputs
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 04A ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+func Day4a(m int) (int, time.Duration) {
+	start := time.Now()
+	var lines []string
+	if m == 0 {
+		lines = util.Returnlines("inputdata/day_04/day_04_test.txt")
+	} else {
+		lines = util.Returnlines("inputdata/day_04/day_04_actual.txt")
+	}
 
 	// Variables For Today
 	var score float64
@@ -43,9 +48,24 @@ func Day4a() {
 			score += math.Pow(2, float64(card.Score)-1)
 		}
 	}
-	fmt.Printf(">Answer To Day 4a: %.0f\n", score)
+
+	return int(score), time.Since(start)
 }
 
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 04B ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+func Day4b(m int) (int, time.Duration) {
+	start := time.Now()
+	var lines []string
+	if m == 0 {
+		lines = util.Returnlines("inputdata/day_04/day_04_test.txt")
+	} else {
+		lines = util.Returnlines("inputdata/day_04/day_04_actual.txt")
+	}
+	lines = append(lines)
+	return 0, time.Since(start)
+}
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ UTILS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 type Scratchoff struct {
 	CardID         int
 	WinningNumbers []int
@@ -85,11 +105,4 @@ func ExtractMyNumbers(s string) []int { //Extract The Winning Numbers from The C
 		}
 	}
 	return MyNumbers
-}
-
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 4b +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-func Day4b() {
-	fmt.Println("\nStarting Day 4b")
-
-	fmt.Printf(">Answer To Day 4b: %d\n", 0)
 }

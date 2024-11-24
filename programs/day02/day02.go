@@ -2,16 +2,20 @@ package day02
 
 import (
 	util "AOC23/programs"
-	"fmt"
 	"strconv"
 	"strings"
+	"time"
 )
 
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 2A +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-func Day2a() {
-	fmt.Println("\nStarting Day 2a")
-	lines := util.Returnlines("inputdata/day_02/day_02_test.txt") //Read In Inputs
-	//lines := util.Returnlines("inputdata/day_02/day_02_actual.txt") //Read In Inputs
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 02A ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+func Day2a(m int) (int, time.Duration) {
+	start := time.Now()
+	var lines []string
+	if m == 0 {
+		lines = util.Returnlines("inputdata/day_02/day_02_test.txt")
+	} else {
+		lines = util.Returnlines("inputdata/day_02/day_02_actual.txt")
+	}
 
 	//Todays VARS
 	puzzleanswer := 0
@@ -44,14 +48,18 @@ func Day2a() {
 			puzzleanswer += ExtractGameNumber(lines[i])
 		}
 	}
-	fmt.Printf(">Answer To Day 2a: %d\n", puzzleanswer)
+	return puzzleanswer, time.Since(start)
 }
 
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 2B +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-func Day2b() {
-	fmt.Println("\nStarting Day 2b")
-	lines := util.Returnlines("inputdata/day_02/day_02_test.txt") //Read In Inputs
-	//lines := util.Returnlines("inputdata/day_02/day_02_actual.txt") //Read In Inputs
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 02B ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+func Day2b(m int) (int, time.Duration) {
+	start := time.Now()
+	var lines []string
+	if m == 0 {
+		lines = util.Returnlines("inputdata/day_02/day_02_test.txt")
+	} else {
+		lines = util.Returnlines("inputdata/day_02/day_02_actual.txt")
+	}
 
 	//Todays VARS
 	puzzleanswer := 0
@@ -82,9 +90,10 @@ func Day2b() {
 		}
 		puzzleanswer += (gameminimumblocks[0] * gameminimumblocks[1] * gameminimumblocks[2])
 	}
-	fmt.Printf(">Answer To Day 2b: %d\n", puzzleanswer)
+	return puzzleanswer, time.Since(start)
 }
 
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ UTILITY ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Return The Game Number (Used For Day 2)
 func ExtractGameNumber(s string) int {
 	withoutprefix, _ := strings.CutPrefix(s, "Game ") //Remove the Prefix Of The Line

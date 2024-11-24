@@ -7,13 +7,18 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+	"time"
 )
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 01A ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-func Day1a() {
-	fmt.Println("Starting Day 1a")
-	lines := util.Returnlines("inputdata/day_01/day_01_test.txt") //Read In Inputs
-	//lines := util.Returnlines("inputdata/day_01/day_01_actual.txt") //Read In Inputs
+func Day1a(m int) (int, time.Duration) {
+	start := time.Now()
+	var lines []string
+	if m == 0 {
+		lines = util.Returnlines("inputdata/day_01/day_01_test.txt")
+	} else {
+		lines = util.Returnlines("inputdata/day_01/day_01_actual.txt")
+	}
 
 	//Setup VARS For Today
 	answer := 0
@@ -30,14 +35,18 @@ func Day1a() {
 		answer += num                                                 //Add To running Total
 	}
 
-	fmt.Printf(">Answer To Day 1a: %d\n", answer)
+	return answer, time.Since(start)
 }
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 01B ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-func Day1b() {
-	fmt.Println("\nStarting Day 1b")
-	lines := util.Returnlines("inputdata/day_01/day_01_test.txt") //Read In Inputs
-	//lines := util.Returnlines("inputdata/day_01/day_01_actual.txt") //Read In Inputs
+func Day1b(m int) (int, time.Duration) {
+	start := time.Now()
+	var lines []string
+	if m == 0 {
+		lines = util.Returnlines("inputdata/day_01/day_01_test.txt")
+	} else {
+		lines = util.Returnlines("inputdata/day_01/day_01_actual.txt")
+	}
 
 	//Setup VARS For Today
 	answer := 0
@@ -93,7 +102,6 @@ func Day1b() {
 				}
 
 			}
-			print()
 		}
 		//If There Was a Number After The Word Ignore The Word
 		if minValue < minNumValue {
@@ -111,7 +119,7 @@ func Day1b() {
 		answer += num                                                 //Add To running Total
 	}
 
-	fmt.Printf(">Answer To Day 1b: %d\n", answer)
+	return answer, time.Since(start)
 }
 
 func reversestring(s string) string {

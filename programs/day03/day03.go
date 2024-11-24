@@ -2,17 +2,21 @@ package day03
 
 import (
 	util "AOC23/programs"
-	"fmt"
 	"slices"
 	"strconv"
 	"strings"
+	"time"
 )
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 03A ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-func Day3a() {
-	fmt.Println("\nStarting Day 3a")
-	lines := util.Returnlines("inputdata/day_03/day_03_test.txt") //Read In Inputs
-	//lines := util.Returnlines("inputdata/day_03/day_03_actual.txt") //Read In Inputs
+func Day3a(m int) (int, time.Duration) {
+	start := time.Now()
+	var lines []string
+	if m == 0 {
+		lines = util.Returnlines("inputdata/day_03/day_03_test.txt")
+	} else {
+		lines = util.Returnlines("inputdata/day_03/day_03_actual.txt")
+	}
 
 	//Todays VARS
 	symbols := "!@*+%#/$&--!@#$%^&*()="
@@ -104,7 +108,8 @@ func Day3a() {
 			score += int(partnumbers[i].Score)
 		}
 	}
-	fmt.Printf(">Answer To Day 3a: %d\n", score)
+
+	return score, time.Since(start)
 }
 
 type partnumber struct {
@@ -117,8 +122,14 @@ type partnumber struct {
 }
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 03B ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-func Day3b() {
-	fmt.Println("\nStarting Day 3b")
-
-	fmt.Printf(">Answer To Day 3b: %d\n", 0)
+func Day3b(m int) (int, time.Duration) {
+	start := time.Now()
+	var lines []string
+	if m == 0 {
+		lines = util.Returnlines("inputdata/day_03/day_03_test.txt")
+	} else {
+		lines = util.Returnlines("inputdata/day_03/day_03_actual.txt")
+	}
+	lines = append(lines)
+	return 0, time.Since(start)
 }
