@@ -19,6 +19,8 @@ func main() {
 	day2b() //Complete
 	day3a() //Complete
 	day3b() //Not Complete
+	day4a() //Not Complete
+	day4b() //Not Complete
 
 	fmt.Printf("\nEnd Of Code | Execution Duration: %s\n", time.Since(start))
 }
@@ -356,7 +358,23 @@ type partnumber struct {
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 3B +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 func day3b() {
+	fmt.Println("\nStarting Day 3b")
 
+	fmt.Printf(">Answer To Day 3b: %d\n", 0)
+}
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 4a +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+func day4a() {
+	fmt.Println("\nStarting Day 4a")
+
+	fmt.Printf(">Answer To Day 4a: %d\n", 0)
+}
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ DAY 4b +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+func day4b() {
+	fmt.Println("\nStarting Day 4b")
+
+	fmt.Printf(">Answer To Day 4b: %d\n", 0)
 }
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Supporting Functions +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
