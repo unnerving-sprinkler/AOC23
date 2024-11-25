@@ -58,8 +58,33 @@ func Day5a(m int) (int, time.Duration) {
 		}
 
 	}
+	var lowestlocation int
+	for i := 0; i < len(seeds); i++ {
+		soil := translate(seeds[i], maps[0])
+		fertilizer := translate(soil, maps[1])
+		water := translate(fertilizer, maps[2])
+		light := translate(water, maps[3])
+		temperature := translate(light, maps[4])
+		humidity := translate(temperature, maps[5])
+		location := translate(humidity, maps[6])
 
-	return 0, time.Since(start)
+		if i == 1 || location < lowestlocation {
+			lowestlocation = location
+		}
+
+	}
+
+	return lowestlocation, time.Since(start)
+}
+
+func translate(value int, maps []Map) int {
+	for _, page := range maps {
+		if value >= page.SourceRangeStart && value <= page.SourceRangeStart+page.RangeLength {
+			cmtValue := page.DestinationRangeStart + (value - page.SourceRangeStart)
+			return cmtValue
+		}
+	}
+	return value
 }
 
 type Map struct {
