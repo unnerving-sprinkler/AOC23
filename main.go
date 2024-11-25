@@ -18,7 +18,7 @@ func main() {
 	fmt.Println("Starting The AdventOfCode23 Script")
 
 	// CHOOSE SETTINGS
-	m := 1 // 0 = Test Input | 1 = Actual Input
+	m := 0 // 0 = Test Input | 1 = Actual Input
 
 	day1aans, day1atime := day01.Day1a(m) //Complete
 	day1bans, day1btime := day01.Day1b(m) //Complete
