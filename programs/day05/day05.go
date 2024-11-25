@@ -173,7 +173,7 @@ func Day5b(m int) (int, time.Duration) {
 			actuallowestlocation = lowestlocation
 		}
 	}
-	return actuallowestlocation, time.Since(start)
+	return actuallowestlocation - 1, time.Since(start)
 
 }
 
