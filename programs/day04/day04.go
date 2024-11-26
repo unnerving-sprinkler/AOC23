@@ -61,12 +61,14 @@ func Day4b(m int) (int, time.Duration) {
 	} else {
 		//lines = util.Returnlines("inputdata/day_04/day_04_actual.txt")
 	}
+
 	return 0, time.Since(start)
 }
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ UTILS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 type Scratchoff struct {
 	CardID         int
+	CardCount      int
 	WinningNumbers []int
 	MyNumbers      []int
 	Score          int
