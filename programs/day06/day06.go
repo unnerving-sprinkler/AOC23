@@ -2,6 +2,9 @@ package day06
 
 import (
 	util "AOC23/programs"
+	"fmt"
+	"strconv"
+	"strings"
 	"time"
 )
 
@@ -14,7 +17,20 @@ func Day6a(m int) (int, time.Duration) {
 	} else {
 		lines = util.Returnlines("inputdata/day_06/day_06_actual.txt")
 	}
-	print(lines)
+
+	//Todays Vars
+	var times []int
+
+	timestrings := strings.Split(lines[0][10:], " ") //Create Time Strings
+	for _, str := range timestrings {                //Convert To INTS
+		if str == "" {
+			asint, _ := strconv.Atoi(str)
+			times = append(times, asint)
+		}
+	}
+
+	fmt.Printf("%s", timestrings[0])
+
 	return 5, time.Since(start)
 }
 
