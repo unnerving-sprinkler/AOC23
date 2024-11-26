@@ -2,7 +2,6 @@ package day05
 
 import (
 	util "AOC23/programs"
-	"fmt"
 	"slices"
 	"strconv"
 	"strings"
@@ -163,7 +162,7 @@ func Day5b(m int) (int, time.Duration) {
 			temperature := translate(light, maps[4])
 			humidity := translate(temperature, maps[5])
 			location := translate(humidity, maps[6])
-			fmt.Printf("%d\n", i)
+			//fmt.Printf("%d\n", i)
 			if i == seeds[j].RangeStart || location < lowestlocation {
 				lowestlocation = location
 			}
